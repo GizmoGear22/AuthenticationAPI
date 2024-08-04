@@ -8,9 +8,9 @@ using Models;
 
 namespace DBAccessLayer.DBAccess
 {
-	public class DBAccess : DbContext
+	public class DataAccess : DbContext
 	{
-		public DBAccess(DbContextOptions<DBAccess> options) : base(options) { }
+		public DataAccess(DbContextOptions<DataAccess> options) : base(options) { }
 		public DbSet<LoginModel> LoginCredentials { get; set; }
 	}
 }
