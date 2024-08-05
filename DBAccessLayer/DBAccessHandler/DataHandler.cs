@@ -8,7 +8,7 @@ using Models;
 
 namespace DBAccessLayer
 {
-	public class DataHandler
+	public class DataHandler : IDataHandler
 	{
 		private readonly DataAccess _dataAccess;
 		public DataHandler(DataAccess dataAccess)
