@@ -15,5 +15,12 @@ namespace APILayer.Controllers
 			throw new NotImplementedException();
 		}
 
+		[HttpPost]
+		[Route("AccountCreation")]
+		public async Task<IActionResult> AccountCreation([FromBody] CreateUserModel model)
+		{
+			throw new NotImplementedException(); 
+		}
+
 	}
 }

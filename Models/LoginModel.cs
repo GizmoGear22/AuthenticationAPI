@@ -9,6 +9,7 @@ namespace Models
 {
 	public class LoginModel
 	{
+		[Required]
 		public int Id { get; set; }
 		[Required]
 		[StringLength(50)]

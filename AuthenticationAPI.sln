@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicLayer", "LogicLayer\Lo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DBAccessLayer", "DBAccessLayer\DBAccessLayer.csproj", "{13645482-6FDF-4B72-9571-BAE4C9D36F37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validations", "Validations\Validations.csproj", "{87173853-DD69-40F2-ADE9-A77FE34299C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validations", "Validations\Validations.csproj", "{87173853-DD69-40F2-ADE9-A77FE34299C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegateProcesses", "DelegateProcesses\DelegateProcesses.csproj", "{EA2C1EFE-EE63-403D-8629-6FFEF090870E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{87173853-DD69-40F2-ADE9-A77FE34299C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87173853-DD69-40F2-ADE9-A77FE34299C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87173853-DD69-40F2-ADE9-A77FE34299C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA2C1EFE-EE63-403D-8629-6FFEF090870E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA2C1EFE-EE63-403D-8629-6FFEF090870E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA2C1EFE-EE63-403D-8629-6FFEF090870E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA2C1EFE-EE63-403D-8629-6FFEF090870E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

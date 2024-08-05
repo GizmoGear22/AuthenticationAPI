@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DBAccessLayer\DBAccessLayer.csproj" />
+    <ProjectReference Include="..\DelegateProcesses\DelegateProcesses.csproj" />
+    <ProjectReference Include="..\Validations\Validations.csproj" />
+  </ItemGroup>
+
 </Project>
