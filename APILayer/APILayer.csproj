@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DBAccessLayer\DBAccessLayer.csproj" />
+    <ProjectReference Include="..\LogicLayer\LogicLayer.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
 

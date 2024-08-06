@@ -3,10 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models;
 
 namespace LogicLayer
 {
-	internal class CreateUserToLoginModelConverter
+	public class CreateUserToLoginModelConverter
 	{
+		public static LoginModel ConvertModel (CreateUserModel model)
+		{
+			LoginModel loginModel = new LoginModel();
+			model.Id = loginModel.Id;
+			loginModel.UserName = loginModel.UserName;
+			loginModel.Password = loginModel.Password;
+			return loginModel;
+		}
 	}
 }

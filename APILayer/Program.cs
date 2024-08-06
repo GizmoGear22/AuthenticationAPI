@@ -1,6 +1,9 @@
 
 using Microsoft.EntityFrameworkCore;
 using DBAccessLayer.DBAccess;
+using DBAccessLayer;
+using LogicLayer.DBLogic;
+using LogicLayer.APILogic;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +14,11 @@ builder.Services.AddDbContext<DataAccess>(options =>
 {
 	options.UseSqlServer(builder.Configuration.GetConnectionString("DbCnnString"));
 });
+
+//DI
+builder.Services.AddTransient<IDataHandler,  DataHandler>();
+builder.Services.AddTransient<IDBAccessLogic, DBAccessLogic>();
+builder.Services.AddTransient<IAPILogicHandlers, APILogicHandlers>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

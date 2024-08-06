@@ -19,6 +19,6 @@ namespace Models
 		public string? Password { get; set; }
 		[Required]
 		[StringLength(64)]
-		public string? HashId { get; set; }
+		public string? HashId { get; set; } = null;
 	}
 }
