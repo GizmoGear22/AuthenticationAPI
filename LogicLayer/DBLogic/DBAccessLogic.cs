@@ -20,5 +20,16 @@ namespace LogicLayer.DBLogic
 		{
 			await _handler.AddNewUserToDBAsync(model);
 		}
+
+		public async Task GetUsersFromDB()
+		{
+			await _handler.GetUsersFromRepoAsync();
+		}
+
+		public async Task<LoginModel> GetUserFromDB(LoginModel model)
+		{
+			var data = await _handler.GetUserFromRepoAsync(model);
+			return data;
+		}
 	}
 }

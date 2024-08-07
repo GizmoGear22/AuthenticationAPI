@@ -22,6 +22,11 @@ namespace LogicLayer.APILogic
 
 		}
 
+		public async Task GetAllUsers()
+		{
+			await _dBAccessLogic.GetUsersFromDB();
+		}
+
 		public async Task UserAccess(LoginModel model)
 		{
 			throw new NotImplementedException();

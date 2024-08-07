@@ -19,7 +19,15 @@ namespace APILayer.Controllers
 		[HttpPost]
 		public async Task<IActionResult> PostAuthentication([FromBody] LoginModel model)
 		{
-			throw new NotImplementedException();
+			if (ModelState.IsValid) 
+			{
+				await _handlers.UserAccess(model);
+				return Ok(model);
+			} else
+			{
+				return BadRequest(ModelState);
+			}
+			 
 		}
 
 		[HttpPost]
