@@ -25,9 +25,10 @@ namespace DBAccessLayer
 
 		}
 
-		public async Task GetUsersFromRepoAsync()
+		public async Task<List<LoginModel>> GetUsersFromRepoAsync()
 		{
-			await _dataAccess.LoginCredentials.AsNoTracking().ToListAsync();
+			var data = await _dataAccess.LoginCredentials.AsNoTracking().ToListAsync();
+			return data;
 		}
 
 		public async Task<LoginModel> GetUserFromRepoAsync(LoginModel model)

@@ -5,6 +5,7 @@ namespace LogicLayer.DBLogic
 	public interface IDBAccessLogic
 	{
 		Task AddUserToDB(LoginModel model);
-		Task GetUsersFromDB();
+		Task<List<LoginModel>> GetUsersFromDB();
+		Task<LoginModel> GetUserFromDB(LoginModel model);
 	}
 }

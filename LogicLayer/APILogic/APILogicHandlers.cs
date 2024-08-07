@@ -17,19 +17,22 @@ namespace LogicLayer.APILogic
 		}
 		public async Task CreateUser(CreateUserModel model)
 		{
-			var newModel = CreateUserToLoginModelConverter.ConvertModel(model);
-			await _dBAccessLogic.AddUserToDB(newModel);
-
+			if (model.Password == model.checkPassword)
+			{
+				var newModel = CreateUserToLoginModelConverter.ConvertModel(model);
+				await _dBAccessLogic.AddUserToDB(newModel);
+			}
 		}
 
-		public async Task GetAllUsers()
+		public async Task<List<LoginModel>> GetAllUsers()
 		{
-			await _dBAccessLogic.GetUsersFromDB();
+			var data = await _dBAccessLogic.GetUsersFromDB();
+			return data.ToList();
 		}
 
 		public async Task UserAccess(LoginModel model)
 		{
-			throw new NotImplementedException();
+			await _dBAccessLogic.GetUserFromDB(model);	
 		}
 	}
 }

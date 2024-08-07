@@ -45,5 +45,12 @@ namespace APILayer.Controllers
 			
 		}
 
+		[HttpGet]
+		[Route("GetAllUsers")]
+		public async Task<List<LoginModel>> GetAllUsers()
+		{
+			return await _handlers.GetAllUsers();
+		}
+
 	}
 }
