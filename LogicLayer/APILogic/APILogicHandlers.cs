@@ -32,6 +32,11 @@ namespace LogicLayer.APILogic
 
 		public async Task UserAccess(LoginModel model)
 		{
+			bool[] ErrorArray = new bool[]
+			{
+
+			}
+
 			await _dBAccessLogic.GetUserFromDB(model);	
 		}
 	}
