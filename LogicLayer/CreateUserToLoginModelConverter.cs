@@ -12,7 +12,6 @@ namespace LogicLayer
 		public static LoginModel ConvertModel (CreateUserModel model)
 		{
 			LoginModel loginModel = new LoginModel();
-			model.Id = loginModel.Id;
 			loginModel.UserName = loginModel.UserName;
 			loginModel.Password = loginModel.Password;
 			return loginModel;

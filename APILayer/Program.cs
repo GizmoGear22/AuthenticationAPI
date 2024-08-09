@@ -4,6 +4,7 @@ using DBAccessLayer.DBAccess;
 using DBAccessLayer;
 using LogicLayer.DBLogic;
 using LogicLayer.APILogic;
+using Validations.RegexChecker;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,7 @@ builder.Services.AddDbContext<DataAccess>(options =>
 builder.Services.AddTransient<IDataHandler,  DataHandler>();
 builder.Services.AddTransient<IDBAccessLogic, DBAccessLogic>();
 builder.Services.AddTransient<IAPILogicHandlers, APILogicHandlers>();
+builder.Services.AddTransient<ILoginValidationHandler, LoginValidationHandler>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

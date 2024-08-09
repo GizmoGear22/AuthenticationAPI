@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DBAccessLayer", "DBAccessLa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validations", "Validations\Validations.csproj", "{87173853-DD69-40F2-ADE9-A77FE34299C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegateProcesses", "DelegateProcesses\DelegateProcesses.csproj", "{EA2C1EFE-EE63-403D-8629-6FFEF090870E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DelegateProcesses", "DelegateProcesses\DelegateProcesses.csproj", "{EA2C1EFE-EE63-403D-8629-6FFEF090870E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{CF3F15D7-F305-4BFF-BD66-ECEF2510CB03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{EA2C1EFE-EE63-403D-8629-6FFEF090870E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA2C1EFE-EE63-403D-8629-6FFEF090870E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA2C1EFE-EE63-403D-8629-6FFEF090870E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF3F15D7-F305-4BFF-BD66-ECEF2510CB03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF3F15D7-F305-4BFF-BD66-ECEF2510CB03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF3F15D7-F305-4BFF-BD66-ECEF2510CB03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF3F15D7-F305-4BFF-BD66-ECEF2510CB03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
