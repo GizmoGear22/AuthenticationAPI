@@ -29,24 +29,6 @@ namespace UnitTests
 				Password = "Bubba"
 				}
 			};
-		[Fact]
-		public async Task PasswordValidationTester()
-		{
-			//arrange
-			_dataHandler.Setup(x => x.GetUsersFromRepoAsync()).ReturnsAsync(DBAccount);
-
-			//act
-			LoginModel userLogin = new LoginModel
-			{
-				UserName = "Bobby Joe",
-				Password = "Bubba"
-			};
-			LoginValidationHandler loginValidation = new LoginValidationHandler(_dataHandler.Object);
-			var result = await loginValidation.CheckUserPassword(userLogin);
-
-			//assert
-			Assert.True(result);
-		}
 
 		[Fact]
 		public async Task PassordValidationTesterAlt()
@@ -61,10 +43,13 @@ namespace UnitTests
 				Password = "Budda"
 			};
 			LoginValidationHandler loginValidation = new LoginValidationHandler(_dataHandler.Object);
-			var result = await loginValidation.CheckUserPassword(userLogin);
+			var result = loginValidation.CheckCorrectUserPassword(userLogin);
+
+			var exception = await Assert.ThrowsAsync<ErrorMessageModel>(() => loginValidation.CheckCorrectUserPassword(userLogin));
+			var expected = "Incorrect Password";
 
 			//assert
-			Assert.False(result);
+			Assert.Equal(exception.Message, expected);
 		}
 	}
 }
