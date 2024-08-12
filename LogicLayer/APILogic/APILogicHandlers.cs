@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LogicLayer.DBLogic;
 using Models;
+using Validations.RegexChecker;
 using Validations.UserCreationValidation;
 
 namespace LogicLayer.APILogic
@@ -13,10 +14,12 @@ namespace LogicLayer.APILogic
 	{
 		private readonly IDBAccessLogic _dBAccessLogic;
 		private readonly IUserCreationValidationHandler _userCreationValidationHandler;
-		public APILogicHandlers(IDBAccessLogic dBAccessLogic, IUserCreationValidationHandler userCreationValidationHandler)
+		private readonly ILoginValidationHandler _loginValidationHandler;
+		public APILogicHandlers(IDBAccessLogic dBAccessLogic, IUserCreationValidationHandler userCreationValidationHandler, ILoginValidationHandler loginValidationHandler)
 		{
 			_dBAccessLogic = dBAccessLogic;
 			_userCreationValidationHandler = userCreationValidationHandler;
+			_loginValidationHandler = loginValidationHandler;
 		}
 		public async Task CreateUser(CreateUserModel model)
 		{
@@ -41,10 +44,10 @@ namespace LogicLayer.APILogic
 
 		public async Task UserAccess(LoginModel model)
 		{
-			bool[] ErrorArray = new bool[]
-			{
-			
-			};
+			_loginValidationHandler.CheckIfVoid(model);
+			_loginValidationHandler.CheckVoidUsername(model);	
+			_loginValidationHandler.CheckVoidPassword(model);
+			await _loginValidationHandler.CheckCorrectUserPassword(model);
 
 			await _dBAccessLogic.GetUserFromDB(model);	
 		}
