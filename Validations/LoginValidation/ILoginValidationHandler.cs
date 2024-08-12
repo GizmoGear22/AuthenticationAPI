@@ -4,6 +4,6 @@ namespace Validations.RegexChecker
 {
 	public interface ILoginValidationHandler
 	{
-		Task<bool> CheckUserPassword(LoginModel model);
+		Task<bool> CheckCorrectUserPassword(LoginModel model);
 	}
 }

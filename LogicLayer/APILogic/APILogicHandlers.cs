@@ -34,7 +34,7 @@ namespace LogicLayer.APILogic
 		{
 			bool[] ErrorArray = new bool[]
 			{
-
+			
 			};
 
 			await _dBAccessLogic.GetUserFromDB(model);	

@@ -15,7 +15,7 @@ namespace Validations.RegexChecker
 		{
 			_dataHandler = dataHandler;
 		}
-		public async Task<bool> CheckUserPassword(LoginModel model)
+		public async Task<bool> CheckCorrectUserPassword(LoginModel model)
 		{
 			var userDbData = await _dataHandler.GetUsersFromRepoAsync();
 			var DbUser = userDbData.Where(x => x.UserName == model.UserName).FirstOrDefault();
@@ -25,9 +25,7 @@ namespace Validations.RegexChecker
 			}
 			else
 			{
-				string? message = "Wrong Password";
-				string? errorCode = "200";
-				return false;
+				throw new ErrorMessageModel("Bad Request", "400", "Incorrect Password");
 			}
 
 		}

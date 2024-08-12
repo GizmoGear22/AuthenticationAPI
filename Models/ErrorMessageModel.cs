@@ -7,9 +7,15 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-	public class ErrorMessageModel
+	public class ErrorMessageModel : Exception
 	{
-		public string Message { get; set; }
-		public string ErrorCode { get; set; }
+		public string? Error {  get; set; }
+		public string? ErrorCode { get; set; }
+
+		public ErrorMessageModel(string? error, string? errorCode, string message) : base(message)
+		{
+			Error = error;
+			ErrorCode = errorCode;
+		}
 	}
 }
