@@ -4,10 +4,11 @@ namespace Validations.UserCreationValidation
 {
 	public interface IUserCreationValidationHandler
 	{
-		bool CheckForMissingName(CreateUserModel model);
-		bool CheckForMissingPassword(CreateUserModel model);
-		bool CheckForMissingPasswordCheck(CreateUserModel model);
-		bool CheckIfNullCreation(CreateUserModel model);
-		bool CheckPasswordMatch(CreateUserModel model);
+		void CheckForMissingName(CreateUserModel model);
+		void CheckForMissingPassword(CreateUserModel model);
+		void CheckForMissingPasswordCheck(CreateUserModel model);
+		void CheckIfNullCreation(CreateUserModel model);
+		void CheckPasswordMatch(CreateUserModel model);
+		Task CheckIfUserExists(CreateUserModel model, LoginModel loginModel);
 	}
 }
