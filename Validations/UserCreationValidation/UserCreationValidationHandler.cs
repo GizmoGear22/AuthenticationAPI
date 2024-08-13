@@ -56,9 +56,10 @@ namespace Validations.UserCreationValidation
 			}
 		}
 
-		public async Task CheckIfUserExists(CreateUserModel model, LoginModel loginModel)
+		public async Task CheckIfUserExists(LoginModel loginModel)
 		{
-			if (model.Name == loginModel.UserName)
+			var expectedUser = await _handler.GetUserFromRepoAsync(loginModel);
+			if (expectedUser.UserName == loginModel.UserName)
 			{
 				throw new ErrorMessageModel("Bad Request", "400", "Username already exists");
 			}

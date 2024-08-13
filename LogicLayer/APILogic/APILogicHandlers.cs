@@ -30,7 +30,7 @@ namespace LogicLayer.APILogic
 			_userCreationValidationHandler.CheckForMissingName(model);
 
 			var newUser = CreateUserToLoginModelConverter.ConvertModel(model);
-			await _userCreationValidationHandler.CheckIfUserExists(model, newUser);
+			await _userCreationValidationHandler.CheckIfUserExists(newUser);
 
 			await _dBAccessLogic.AddUserToDB(newUser);	
 

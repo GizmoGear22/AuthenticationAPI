@@ -9,6 +9,6 @@ namespace Validations.UserCreationValidation
 		void CheckForMissingPasswordCheck(CreateUserModel model);
 		void CheckIfNullCreation(CreateUserModel model);
 		void CheckPasswordMatch(CreateUserModel model);
-		Task CheckIfUserExists(CreateUserModel model, LoginModel loginModel);
+		Task CheckIfUserExists(LoginModel loginModel);
 	}
 }
