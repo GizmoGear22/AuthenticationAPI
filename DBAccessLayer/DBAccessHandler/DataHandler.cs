@@ -33,7 +33,8 @@ namespace DBAccessLayer
 
 		public async Task<LoginModel> GetUserFromRepoAsync(LoginModel model)
 		{
-			var data = await _dataAccess.LoginCredentials.FindAsync(model.UserName);
+			//var data = await _dataAccess.LoginCredentials.FindAsync(model.UserName);
+			var data = await _dataAccess.LoginCredentials.Where(x => x.UserName == model.UserName).FirstOrDefaultAsync();
 			return data;
 		}
 	}

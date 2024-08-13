@@ -59,7 +59,7 @@ namespace Validations.UserCreationValidation
 		public async Task CheckIfUserExists(LoginModel loginModel)
 		{
 			var expectedUser = await _handler.GetUserFromRepoAsync(loginModel);
-			if (expectedUser.UserName == loginModel.UserName)
+			if (expectedUser != null)
 			{
 				throw new ErrorMessageModel("Bad Request", "400", "Username already exists");
 			}
