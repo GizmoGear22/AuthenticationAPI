@@ -6,6 +6,7 @@ using LogicLayer.DBLogic;
 using LogicLayer.APILogic;
 using Validations.RegexChecker;
 using Validations.UserCreationValidation;
+using Validations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,6 +43,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ApiKeyMiddleware>();
 
 app.UseAuthorization();
 
