@@ -13,7 +13,7 @@ namespace Models
 		public int Id { get; set; }
 		[Required]
 		[StringLength(50)]
-		public string Name { get; set; }
+		public string UserName { get; set; }
 		[Required]
 		[StringLength(32)]
 		public string TokenId { get; set; }

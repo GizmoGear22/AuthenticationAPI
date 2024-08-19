@@ -37,5 +37,13 @@ namespace DBAccessLayer
 			var data = await _dataAccess.LoginCredentials.Where(x => x.UserName == model.UserName).FirstOrDefaultAsync();
 			return data;
 		}
+
+		public async Task<AccessToken> StoreTokenInRepoAsync(AccessToken model)
+		{
+			await _dataAccess.TokenCredentials.AddAsync(model);
+			await _dataAccess.SaveChangesAsync();
+			return model;
+			
+		}
 	}
 }
