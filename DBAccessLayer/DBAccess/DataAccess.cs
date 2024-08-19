@@ -12,5 +12,6 @@ namespace DBAccessLayer.DBAccess
 	{
 		public DataAccess(DbContextOptions<DataAccess> options) : base(options) { }
 		public DbSet<LoginModel> LoginCredentials { get; set; }
+		public DbSet<AccessToken> TokenCredentials { get; set; }
 	}
 }
