@@ -32,5 +32,11 @@ namespace LogicLayer.DBLogic
 			var data = await _handler.GetUserFromRepoAsync(model);
 			return data;
 		}
+
+		public async Task<AccessToken> StoreTokenInDB(AccessToken model)
+		{
+			var data = await _handler.StoreTokenInRepoAsync(model);
+			return data;
+		}
 	}
 }

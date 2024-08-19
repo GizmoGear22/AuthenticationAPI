@@ -7,5 +7,6 @@ namespace LogicLayer.DBLogic
 		Task AddUserToDB(LoginModel model);
 		Task<List<LoginModel>> GetUsersFromDB();
 		Task<LoginModel> GetUserFromDB(LoginModel model);
+		Task<AccessToken> StoreTokenInDB(AccessToken model);
 	}
 }

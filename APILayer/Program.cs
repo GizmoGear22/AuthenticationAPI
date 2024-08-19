@@ -9,6 +9,7 @@ using Validations.UserCreationValidation;
 using Validations;
 using Microsoft.OpenApi.Extensions;
 using Microsoft.OpenApi.Models;
+using LogicLayer.AuthLogic;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +27,7 @@ builder.Services.AddTransient<IDBAccessLogic, DBAccessLogic>();
 builder.Services.AddTransient<IAPILogicHandlers, APILogicHandlers>();
 builder.Services.AddTransient<ILoginValidationHandler, LoginValidationHandler>();
 builder.Services.AddTransient<IUserCreationValidationHandler, UserCreationValidationHandler>();
+builder.Services.AddTransient<IAuthLogicHandler, AuthLogicHandler>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
