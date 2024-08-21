@@ -22,7 +22,7 @@ namespace APILayer.Controllers
 			if (ModelState.IsValid) 
 			{
 				await _handlers.UserAccess(model);
-				return Ok(model);
+				return Ok();
 			} else
 			{
 				return BadRequest(ModelState);

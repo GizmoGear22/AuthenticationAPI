@@ -9,7 +9,6 @@ using Validations.UserCreationValidation;
 using Validations;
 using Microsoft.OpenApi.Extensions;
 using Microsoft.OpenApi.Models;
-using LogicLayer.AuthLogic;
 using LogicLayer.CookieToken;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +22,7 @@ builder.Services.AddDbContext<DataAccess>(options =>
 });
 
 //DI
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddTransient<IDataHandler,  DataHandler>();
 builder.Services.AddTransient<IDBAccessLogic, DBAccessLogic>();
 builder.Services.AddTransient<IAPILogicHandlers, APILogicHandlers>();

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LogicLayer.AuthLogic;
 using LogicLayer.DBLogic;
 using Microsoft.AspNetCore.Http;
 using Models;
@@ -12,9 +11,9 @@ namespace LogicLayer.CookieToken
 {
 	public class CookieTokenLogic : ICookieTokenLogic
 	{
-		private readonly HttpContext _context;
+		private readonly IHttpContextAccessor _context;
 		private readonly IDBAccessLogic _accessLogic;
-		public CookieTokenLogic(HttpContext context, IDBAccessLogic accessLogic)
+		public CookieTokenLogic(IHttpContextAccessor context, IDBAccessLogic accessLogic)
 		{
 			_context = context;
 			_accessLogic = accessLogic;
@@ -23,6 +22,7 @@ namespace LogicLayer.CookieToken
 		public void CreateCookie(LoginModel login)
 		{
 			string token = Guid.NewGuid().ToString();
+			var tokenWithNoDashes = token.ToString().Replace("-", "");
 			var cookie = new CookieOptions
 			{
 				Expires = DateTimeOffset.UtcNow.AddHours(1),
@@ -31,7 +31,8 @@ namespace LogicLayer.CookieToken
 				SameSite = SameSiteMode.Strict
 			};
 
-			_context.Response.Cookies.Append("AuthToken", token, cookie);
+			var httpContext = _context.HttpContext;
+			httpContext.Response.Cookies.Append("AuthToken", tokenWithNoDashes, cookie);
 
 		}
 

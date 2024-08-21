@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LogicLayer.CookieToken;
 using LogicLayer.DBLogic;
 using Models;
 using Validations.RegexChecker;
@@ -15,11 +16,13 @@ namespace LogicLayer.APILogic
 		private readonly IDBAccessLogic _dBAccessLogic;
 		private readonly IUserCreationValidationHandler _userCreationValidationHandler;
 		private readonly ILoginValidationHandler _loginValidationHandler;
-		public APILogicHandlers(IDBAccessLogic dBAccessLogic, IUserCreationValidationHandler userCreationValidationHandler, ILoginValidationHandler loginValidationHandler)
+		private readonly ICookieTokenLogic _cookieTokenLogic;
+		public APILogicHandlers(IDBAccessLogic dBAccessLogic, IUserCreationValidationHandler userCreationValidationHandler, ILoginValidationHandler loginValidationHandler, ICookieTokenLogic cookieTokenLogic)
 		{
 			_dBAccessLogic = dBAccessLogic;
 			_userCreationValidationHandler = userCreationValidationHandler;
 			_loginValidationHandler = loginValidationHandler;
+			_cookieTokenLogic = cookieTokenLogic;
 		}
 		public async Task CreateUser(CreateUserModel model)
 		{
@@ -49,6 +52,7 @@ namespace LogicLayer.APILogic
 			_loginValidationHandler.CheckVoidPassword(model);
 			await _loginValidationHandler.CheckCorrectUserPassword(model);
 
+			_cookieTokenLogic.CreateCookie(model);
 			await _dBAccessLogic.GetUserFromDB(model);	
 		}
 	}
